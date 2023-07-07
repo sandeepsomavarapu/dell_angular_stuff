@@ -1,0 +1,29 @@
+
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h3>Employees Info:</h3>
+        <table class="table table-dark table-striped">
+            <tr>
+                <th>EmpId</th>
+                <th>EmpName</th>
+                <th>DOB</th>
+                <th>Gender</th>
+                <th>Salary</th>
+            </tr>
+            <tr *ngFor="let emp of emps">
+                <td>{{emp.empcode}}</td>
+                <td>{{emp.name|titlecase|gender:emp.gender}}</td>
+                <td>{{emp.dateOfBirth|date|uppercase}}</td>
+                <td>{{emp.gender}}</td>
+                <td>{{emp.sal|number}}</td>
+            </tr>
+            <tr *ngIf="emps.length==0">
+                <td>NO Employees Info TO Display</td>
+            </tr>
+        </table>
+    </body>
+
+</html>

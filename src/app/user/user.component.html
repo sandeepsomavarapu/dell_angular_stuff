@@ -1,0 +1,33 @@
+<html>
+<head>
+    </head>
+    
+   <body>
+<div class="container">
+   
+    <table class="table table-striped" *ngIf="usersinfo  && usersinfo.length > 0  ">
+        <thead>
+        <tr>
+            <th>EMPLOYEE ID</th>
+            <th>EMPLOYEE NAME</th>
+            <th>Email</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let e of usersinfo" style="text-align: center;">
+                <td> {{e.id}} </td>
+                <td> {{e.name}} </td>
+                <td>{{e.email}}</td>
+            
+                <td>
+            </tr>
+        </tbody>
+    </table>
+
+  
+</div>
+<div>
+
+</div>
+</body>
+</html>
