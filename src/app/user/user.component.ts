@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { User, UsersService } from '../users.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -7,16 +8,27 @@ import { User, UsersService } from '../users.service';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent {
-  usersinfo:User[];
-  constructor(private service:UsersService)
-  {
+  usersinfo: User[];
+  constructor(private router:Router ,private service: UsersService) {
 
   }
-  ngOnInit()
-  {
-    this.service.getEmployees().subscribe(data=>this.handleSuccessfulResponse(data))
+  ngOnInit() {
+    this.service.getUsers().subscribe(data => this.processUsers(data))
   }
-  handleSuccessfulResponse(data) {
-   this.usersinfo=data;
+  processUsers(data) {
+    this.usersinfo = data;
+  }
+  deleteUser(user){
+      var selction= confirm("Are you sure !!")
+  if(selction==true){
+     this.usersinfo.splice(this.usersinfo.indexOf(user), 1);
+   this.service.deleteUser(user.id).subscribe(data => {
+     alert("Deleted Successfully");
+   });}
+this.router.navigate(['/users']);
+}
+  updateUser(user) {
+    this.service.updateUser(user)
+    this.router.navigate(['/updateuser'])  
   }
 }

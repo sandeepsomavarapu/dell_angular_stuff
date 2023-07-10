@@ -11,6 +11,8 @@ import { GenderPipe } from './gender.pipe';
 import { FormsModule } from '@angular/forms';
 import { UserComponent } from './user/user.component';
 import { HttpClientModule } from '@angular/common/http';
+import { UpdateuserComponent } from './updateuser/updateuser.component';
+import { AdduserComponent } from './adduser/adduser.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,9 @@ import { HttpClientModule } from '@angular/common/http';
     ForgotpasswordComponent,
     EmployeeComponent,
     GenderPipe,
-    UserComponent
+    UserComponent,
+    UpdateuserComponent,
+    AdduserComponent
   ],
   imports: [
     BrowserModule,HttpClientModule,

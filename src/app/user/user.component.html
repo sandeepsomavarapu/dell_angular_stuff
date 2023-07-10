@@ -8,18 +8,19 @@
     <table class="table table-striped" *ngIf="usersinfo  && usersinfo.length > 0  ">
         <thead>
         <tr>
-            <th>EMPLOYEE ID</th>
-            <th>EMPLOYEE NAME</th>
+            <th>User ID</th>
+            <th>User NAME</th>
             <th>Email</th>
+            <th>Operation</th>
         </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let e of usersinfo" style="text-align: center;">
-                <td> {{e.id}} </td>
-                <td> {{e.name}} </td>
-                <td>{{e.email}}</td>
-            
-                <td>
+            <tr *ngFor="let user of usersinfo" style="text-align: center;">
+                <td> {{user.id}} </td>
+                <td> {{user.name}} </td>
+                <td>{{user.email}}</td>
+                <td>  <i class="fas fa-trash"(click) =deleteUser(user)></i> </td>
+                <td><i class="fas fa-edit" (click)=updateUser(user)></i></td>
             </tr>
         </tbody>
     </table>
