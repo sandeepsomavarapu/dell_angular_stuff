@@ -17,8 +17,12 @@ export class UsersService {
     else
       return false
   }
+  public getUser(id:number) {
+    console.log("in service get user");//headers
+    return this.client.get("http://localhost:3000/users/"+id);
+  }
   public getUsers() {
-    console.log("in service get employees");//headers
+    console.log("in service get users");//headers
     return this.client.get("http://localhost:3000/users");
   }
   public deleteUser(uid) {

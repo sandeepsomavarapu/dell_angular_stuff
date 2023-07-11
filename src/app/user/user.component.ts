@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { User, UsersService } from '../users.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -9,11 +9,14 @@ import { Router } from '@angular/router';
 })
 export class UserComponent {
   usersinfo: User[];
-  constructor(private router:Router ,private service: UsersService) {
+  constructor(private router:Router ,private activatedroute:ActivatedRoute, private service: UsersService) {
 
   }
   ngOnInit() {
     this.service.getUsers().subscribe(data => this.processUsers(data))
+    console.log(this.activatedroute.snapshot.paramMap.get('ename'))
+    console.log(this.activatedroute.snapshot.queryParamMap.get('ename'))
+
   }
   processUsers(data) {
     this.usersinfo = data;

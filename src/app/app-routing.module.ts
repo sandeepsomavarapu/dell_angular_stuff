@@ -6,6 +6,7 @@ import { EmployeeComponent } from './employee/employee.component';
 import { UserComponent } from './user/user.component';
 import { UpdateuserComponent } from './updateuser/updateuser.component';
 import { AdduserComponent } from './adduser/adduser.component';
+import { GetuserComponent } from './getuser/getuser.component';
 
 const routes: Routes = [
   {path:"",component:LoginComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
 {path:"emps",component:EmployeeComponent},
 {path:"updateuser",component:UpdateuserComponent},
 {path:"adduser",component:AdduserComponent},
+{path:"getuser/:id",component:GetuserComponent},
 ];
 
 @NgModule({

@@ -13,6 +13,7 @@ import { UserComponent } from './user/user.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UpdateuserComponent } from './updateuser/updateuser.component';
 import { AdduserComponent } from './adduser/adduser.component';
+import { GetuserComponent } from './getuser/getuser.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import { AdduserComponent } from './adduser/adduser.component';
     GenderPipe,
     UserComponent,
     UpdateuserComponent,
-    AdduserComponent
+    AdduserComponent,
+    GetuserComponent
   ],
   imports: [
     BrowserModule,HttpClientModule,

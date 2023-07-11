@@ -18,7 +18,7 @@ export class AdduserComponent {
     console.log(user);
      this.service.addUser(user).subscribe(data => {
       alert("employee added successfully"+data);
-      this.router.navigate(['/users']);
+      this.router.navigate(['/users',{eid:123,ename:"sandeep"}]);
     });
   }
 }

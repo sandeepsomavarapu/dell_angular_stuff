@@ -16,7 +16,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let user of usersinfo" style="text-align: center;">
-                <td> {{user.id}} </td>
+                <td><a [routerLink]="['/getuser',user.id]"> {{user.id}}</a> </td>
                 <td> {{user.name}} </td>
                 <td>{{user.email}}</td>
                 <td>  <i class="fas fa-trash"(click) =deleteUser(user)></i> </td>
