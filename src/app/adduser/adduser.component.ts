@@ -15,10 +15,10 @@ export class AdduserComponent {
   }
   
   onSubmit(user:User):any{
-    console.log(user);
+    console.log(user.name);
      this.service.addUser(user).subscribe(data => {
       alert("employee added successfully"+data);
-      this.router.navigate(['/users',{eid:123,ename:"sandeep"}]);
+      this.router.navigate(['/users',{eid:123,ename:"sandeep"}],{queryParams:{eid:222,ename:"dell"}});
     });
   }
 }

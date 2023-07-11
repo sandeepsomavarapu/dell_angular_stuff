@@ -1,23 +1,23 @@
-<form #logindata="ngForm"  (ngSubmit)="validate(logindata)"  class="was-validated">
+<form #logindata="ngForm"  (ngSubmit)="validate(logindata)"  >
     <h2>Login Form</h2>
     <div class="form-group">
       <label for="uname">Username:</label>
-      <input type="text" ngModel class="form-control"  placeholder="Enter username" name="uname" required>
-      <div class="valid-feedback">Valid.</div>
-      <div class="invalid-feedback">Please fill out this field.</div>
+      <input type="text" ngModel minlength="4" maxlength="20"  class="form-control"   #username="ngModel" placeholder="Enter Email" name="uname" required>
+      <div *ngIf='username.errors && username.touched' class="alert alert-danger">
+                  <div *ngIf="username.errors?.['required']">Provide Employee Name </div>
+                  <div *ngIf="!username.errors?.['pattern']">Name should be minimum of 6 characters length</div>
+      </div>
     </div>
     <div class="form-group">
       <label for="pwd">Password:</label>
       <input type="password" ngModel class="form-control"  placeholder="Enter password" name="pswd" required>
-      <div class="valid-feedback">Valid.</div>
-      <div class="invalid-feedback">Please fill out this field.</div>
+  
     </div>
     <div class="form-group form-check">
       <label class="form-check-label">
-        <input class="form-check-input" type="checkbox" name="remember" required> I agree on blabla.
-        <div class="valid-feedback">Valid.</div>
-        <div class="invalid-feedback">Check this checkbox to continue.</div>
+        <input class="form-check-input" type="checkbox" ngModel name="remember" required> I agree terms.
+    
       </label>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button  type="submit" class="btn btn-primary">Submit</button>
   </form>

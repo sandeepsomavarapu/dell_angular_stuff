@@ -23,9 +23,10 @@ export class LoginComponent implements OnInit{
     console.log("destroyed.....")
   }
   validate(login: NgForm) {
+    console.log(login);
     let uname = login.value.uname;
     let password = login.value.pswd;
-    if (uname == "dell" && password == "dell123") {
+    if (uname == "dell"||uname=="admin" && password == "dell123") {
       alert("LOGIN SUCCESS")
       localStorage.setItem("username",uname)
       this.router.navigate(['emps']);

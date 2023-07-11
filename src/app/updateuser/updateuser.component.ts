@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { User, UsersService } from '../users.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-updateuser',
@@ -9,22 +9,24 @@ import { Router } from '@angular/router';
 })
 export class UpdateuserComponent {
   uid:number;
-
-  constructor(private router:Router, private service:UsersService)
+  user:User;
+  constructor(private router:Router,private activatedRoute:ActivatedRoute, private service:UsersService)
   {
 
   }
   ngOnInit()
   {
-    this.uid=this.service.getUserToUpdate().id;
+    this.uid=this.activatedRoute.snapshot.params['id']
+    //this.uid=this.service.getUserToUpdate().id;
     console.log("oninit ..."+this.uid)
+   //this.service.getUser(this.uid).subscribe(user1=>{this.user=user1});
   }
 
   onUpdate(userData:User)
   {
-    //userData.id=this.uid;
-    console.log(userData)
-    this.service.updateUserInServer(userData);
-    this.router.navigate(['/users'])
-  }
+    return this.service.onUpdate(userData).subscribe(data => {
+      alert(data)
+      this.router.navigate(['/users'])
+});
 }
+  }

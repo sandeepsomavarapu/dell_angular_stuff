@@ -19,7 +19,7 @@ export class UsersService {
   }
   public getUser(id:number) {
     console.log("in service get user");//headers
-    return this.client.get("http://localhost:3000/users/"+id);
+    return this.client.get<User>("http://localhost:3000/users/"+id);
   }
   public getUsers() {
     console.log("in service get users");//headers
@@ -33,13 +33,12 @@ export class UsersService {
     console.log("Adding User....." + user);//headers
      return this.client.post("http://localhost:3000/users",user);
   }
-  public updateUserInServer(user:User) {
-    console.log("Updating User....." + user);//headers
-    let user1=new User(user.id,user.name,user.email);
-    console.log(user1.id)
-     return this.client.put("http://localhost:3000/users/"+user1.id,user1);
+  public onUpdate(updatuser: User) {
+    console.log("ins service update");
+
+    return this.client.put("http://localhost:3000/users/"+updatuser.id,updatuser);
   }
-  public updateUser(user:User) {
+  public update(user:User) {
     console.log(user)
     this.userToUpdate=user;
   }

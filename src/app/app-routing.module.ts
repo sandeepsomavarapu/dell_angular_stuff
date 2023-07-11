@@ -7,11 +7,13 @@ import { UserComponent } from './user/user.component';
 import { UpdateuserComponent } from './updateuser/updateuser.component';
 import { AdduserComponent } from './adduser/adduser.component';
 import { GetuserComponent } from './getuser/getuser.component';
+import { AdminGuard } from './admin.guard';
 
 const routes: Routes = [
   {path:"",component:LoginComponent},
-  {path:"users",component:UserComponent},
+  {path:"users",component:UserComponent,canActivate:[AdminGuard]},
 {path:"login",component:LoginComponent},
+
 {path:"register",component:RegisterComponent},
 {path:"emps",component:EmployeeComponent},
 {path:"updateuser",component:UpdateuserComponent},

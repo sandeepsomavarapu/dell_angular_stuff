@@ -13,10 +13,12 @@ export class UserComponent {
 
   }
   ngOnInit() {
-    this.service.getUsers().subscribe(data => this.processUsers(data))
-    console.log(this.activatedroute.snapshot.paramMap.get('ename'))
-    console.log(this.activatedroute.snapshot.queryParamMap.get('ename'))
+    console.log(this.activatedroute);
 
+    this.service.getUsers().subscribe(data => this.processUsers(data))
+   // console.log(this.activatedroute.snapshot.paramMap.get('ename'))
+   // console.log(this.activatedroute.snapshot.queryParamMap.get('ename'))
+   
   }
   processUsers(data) {
     this.usersinfo = data;
@@ -30,8 +32,8 @@ export class UserComponent {
    });}
 this.router.navigate(['/users']);
 }
-  updateUser(user) {
-    this.service.updateUser(user)
+update(user:User) {
+    this.service.update(user)
     this.router.navigate(['/updateuser'])  
   }
 }

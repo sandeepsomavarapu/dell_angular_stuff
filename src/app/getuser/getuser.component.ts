@@ -15,6 +15,7 @@ export class GetuserComponent {
     }
     ngOnInit()
     {
+      console.log(this.aroute)
      let uid=this.aroute.snapshot.params['id'];
      this.service.getUser(uid).subscribe(user=>{
       console.log(user);
