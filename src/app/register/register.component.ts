@@ -18,7 +18,7 @@ export class RegisterComponent {
       name:['DellUser',[Validators.required,Validators.minLength(6),Validators.maxLength(10)]],
       password:['',[Validators.required,Validators.minLength(6),Validators.maxLength(10)]],
       email:['',[Validators.required,Validators.email]],
-      cnum:['',[Validators.required,]],
+      cnum:['', [Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
       remember:['',[Validators.required]]
     })
   }
