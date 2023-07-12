@@ -1,4 +1,4 @@
-<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)" style="padding:40px">
   <h2>Registeration Form</h2>
   <div class="form-group">
     <label for="uname">Username:</label>
@@ -25,6 +25,26 @@
     myForm.get('email').touched">
       Please Enter Valid MailId
     </div>
+  </div>
+  <div *ngFor="let data of Data; let i = index">
+    <div>
+    <label>
+      <input
+        type="checkbox"
+        [value]="data.value"
+        (change)="onCheckboxChange($event)"
+      />
+      {{ data.name }}
+    </label>
+  </div>
+  </div>
+  <div>
+    <p
+  class="text-danger"
+  *ngIf="this.myForm.controls['lang'].errors?.['required']"
+>
+  Checkbox is required, select atleast one value.
+</p>
   </div>
   <div class="form-group">
     <label for="pwd">Contact:</label>
