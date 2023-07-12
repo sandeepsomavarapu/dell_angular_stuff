@@ -8,7 +8,7 @@ import { RegisterComponent } from './register/register.component';
 import { ForgotpasswordComponent } from './login/forgotpassword/forgotpassword.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { GenderPipe } from './gender.pipe';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserComponent } from './user/user.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UpdateuserComponent } from './updateuser/updateuser.component';
@@ -29,7 +29,7 @@ import { GetuserComponent } from './getuser/getuser.component';
   ],
   imports: [
     BrowserModule,HttpClientModule,
-    AppRoutingModule,FormsModule
+    AppRoutingModule,FormsModule,ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

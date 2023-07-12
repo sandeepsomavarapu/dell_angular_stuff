@@ -33,7 +33,7 @@ export class UserComponent {
 this.router.navigate(['/users']);
 }
 update(user:User) {
-    this.service.update(user)
+    this.service.update(user);
     this.router.navigate(['/updateuser'])  
   }
 }

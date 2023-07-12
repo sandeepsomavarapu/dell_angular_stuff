@@ -11,6 +11,7 @@ export class AdminGuard implements CanActivate {
     if(uname=="admin")
       return true;
     else
+    alert("You Are Restricted To Access This Route")
     return false;
   }
   
